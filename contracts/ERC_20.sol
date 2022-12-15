@@ -4,10 +4,15 @@ pragma solidity ^0.8.9;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 
-contract MyToken is ERC20 {
+contract MyToken  {
     uint[5] public  supplies;
     uint public count=supplies.length ;
-    constructor() ERC20("MyToken", "MTK") {}
+    string public _name;
+    string public symbol;
+    constructor() {
+        symbol = "MTK";
+        _name = "MyToken ";
+    }
 
     mapping (address => uint) public  depositor_slab;
 
@@ -26,9 +31,6 @@ contract MyToken is ERC20 {
            count--;
           
         }
-       
-        
-    }
 
    
 }
