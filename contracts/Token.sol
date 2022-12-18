@@ -7,11 +7,11 @@ contract MyToken {
     uint256[5] private supplies;
 
     
-    uint256 public count = supplies.length;
-    mapping(address => uint256) public depositor_slab;
+    uint256 private count = supplies.length;
+    mapping(address => uint256) private depositor_slab;
    
 
-    mapping(address => uint256) public balances;
+    mapping(address => uint256) private balances;
 
     event Transfer(address to, address from, uint256 _amount);
     event Deposit(address from ,uint _amount,uint index);
@@ -21,7 +21,7 @@ contract MyToken {
 
     
 
-    
+   
 
     function deposit(uint256 _amount) external {
         if (supplies[count - 1] + _amount < count * 100) {
@@ -59,5 +59,8 @@ contract MyToken {
         return supplies[index-1];
     }
 
+   function getSlab(address _depositor) external view  returns(uint){
+     return  depositor_slab[_depositor];
+   }
   
 }
