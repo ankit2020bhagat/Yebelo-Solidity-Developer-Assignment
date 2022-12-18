@@ -9,8 +9,7 @@ contract MyToken {
     
     uint256 public count = supplies.length;
     mapping(address => uint256) public depositor_slab;
-    string public _name;
-    string public symbol;
+   
 
     mapping(address => uint256) public balances;
 
@@ -20,14 +19,9 @@ contract MyToken {
     /// not having enough balance
     error insuffient_balance();
 
-    constructor() {
-        symbol = "MTK";
-        _name = "MyToken ";
-    }
+    
 
-    function name() external view returns (string memory) {
-        return _name;
-    }
+    
 
     function deposit(uint256 _amount) external {
         if (supplies[count - 1] + _amount < count * 100) {
